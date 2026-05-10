@@ -23,6 +23,7 @@ html{
 body{
     background:#fdfdfd;
     color:#333;
+    padding-top:80px; /* FIX: prevents navbar hiding content */
 }
 
 /* NAV */
@@ -72,7 +73,7 @@ nav{
 
 /* HERO */
 .hero{
-    height:100vh;
+    height:calc(100vh - 80px);
     display:flex;
     justify-content:center;
     align-items:center;
@@ -91,7 +92,6 @@ nav{
     font-size:20px;
 }
 
-/* Hero Button Animation */
 .hero button{
     padding:12px 25px;
     background:white;
@@ -107,7 +107,6 @@ nav{
     transform:translateY(-5px) scale(1.05);
     box-shadow:0 0 20px rgba(255,78,205,0.6);
     background:#f3f3f3;
-    
 }
 
 .hero button:active{
@@ -151,7 +150,6 @@ h2{
     cursor:pointer;
 }
 
-/* Hover animation */
 .create-card:hover{
     transform: translateY(-10px) scale(1.05);
     box-shadow:0 0 25px rgba(255,78,205,0.4);
@@ -159,17 +157,8 @@ h2{
     color:white;
 }
 
-/* Change icon color on hover */
 .create-card:hover i{
     color:white;
-}
-
-.create-card{
-    background:white;
-    padding:25px;
-    text-align:center;
-    border-radius:10px;
-    box-shadow:0 4px 15px rgba(0,0,0,0.1);
 }
 
 .create-card i{
@@ -257,6 +246,7 @@ footer{
 }
 </style>
 </head>
+
 <body>
 
 <nav>
@@ -270,9 +260,7 @@ footer{
         <li><a href="#contact">Contact</a></li>
     </ul>
 
-    <div class="hamburger" id="hamburger">
-        ☰
-    </div>
+    <div class="hamburger" id="hamburger">☰</div>
 </nav>
 
 <section class="hero" id="home">
@@ -357,7 +345,6 @@ footer{
 </footer>
 
 <script>
-// Mobile Menu
 const hamburger = document.getElementById("hamburger");
 const navLinks = document.getElementById("navLinks");
 
@@ -365,7 +352,6 @@ hamburger.addEventListener("click", ()=>{
     navLinks.classList.toggle("active");
 });
 
-// Contact Form Alert
 document.getElementById("contactForm").addEventListener("submit", function(e){
     e.preventDefault();
     alert("Message sent successfully!");
